@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-
+import { Book } from './models/book';
+import { dataTest } from './models/testdata';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'books-app';
+  title = 'books-app'
 }

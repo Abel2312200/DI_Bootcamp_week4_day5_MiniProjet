@@ -1,4 +1,4 @@
-const dataTest = {
+export const dataTest = {
         title: "The Coma",
         authors: [
           "Alex Garland"

@@ -1,0 +1,7 @@
+<h3 class="text-center">Books List</h3>
+<mat-list *ngFor ="let book of books">
+    <mat-list-item>
+      {{ book.authors[0] }} <strong>{{ book.title }}</strong>
+      <img [src]="book.coverImage" [class.preview]="book.previewMode" (click) ="onClickImage(book)">
+    </mat-list-item>
+  </mat-list>
