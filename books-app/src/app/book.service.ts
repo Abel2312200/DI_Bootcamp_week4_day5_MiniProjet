@@ -14,10 +14,21 @@ export class BookService {
 
   /**
    * @param empty
-   * @returns Book[]
+   * @returns 
    */
   getBooks() : Book[]{
     return this.testData;
   }
 
+  /**
+   * 
+   * @param author 
+   * @returns 
+   */
+  getBooksByAuthor(author: string) : Book[] {
+    if (author == "Alex Garland") {
+      return this.testData;
+    }
+    else return [];
+  }
 }

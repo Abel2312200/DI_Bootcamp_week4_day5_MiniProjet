@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { BookService } from '../book.service';
 import { Book } from '../models/book';
-import { dataTest } from '../models/testdata';
 
 @Component({
   selector: 'app-books',
@@ -9,13 +8,14 @@ import { dataTest } from '../models/testdata';
   styleUrls: ['./books.component.css']
 })
 export class BooksComponent implements OnInit {
-  
+
   books !: Book[] ;
+  searchedString = "" ;
 
   constructor(private booksService : BookService){ 
   }
   ngOnInit(): void {  
-    this.books = this.booksService.getBooks() // datas initialization
+    this.getBooks("");// datas initialization
 
   }
   /**
@@ -25,6 +25,14 @@ export class BooksComponent implements OnInit {
    */
   onClickImage( book : Book) {
     book.previewMode = !book.previewMode;
+  }
+
+  private getBooks(author: string) {
+    this.books = this.booksService.getBooksByAuthor(author);
+  }
+
+  onSubmit() {
+    this.getBooks(this.searchedString)
   }
 
 }
