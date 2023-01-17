@@ -9,6 +9,7 @@ import {MatListModule} from '@angular/material/list';
 import { BooksComponent } from './books/books.component';
 import { BookService } from './book.service';
 import { FormsModule } from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -19,8 +20,10 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     FormsModule,
     MatListModule
+
   ],
   providers: [BookService],
   bootstrap: [AppComponent]

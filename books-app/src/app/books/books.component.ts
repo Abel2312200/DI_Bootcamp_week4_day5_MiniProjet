@@ -15,7 +15,7 @@ export class BooksComponent implements OnInit {
   constructor(private booksService : BookService){ 
   }
   ngOnInit(): void {  
-    this.getBooks("");// datas initialization
+    this.getBooks();// datas initialization
 
   }
   /**
@@ -27,12 +27,14 @@ export class BooksComponent implements OnInit {
     book.previewMode = !book.previewMode;
   }
 
-  private getBooks(author: string) {
-    this.books = this.booksService.getBooksByAuthor(author);
+  private getBooks() {
+    this.booksService.getBooksByHttp(this.searchedString).then((data: Book[]) => {
+      this.books = data;
+    })
   }
 
   onSubmit() {
-    this.getBooks(this.searchedString)
+    this.getBooks()
   }
 
 }
